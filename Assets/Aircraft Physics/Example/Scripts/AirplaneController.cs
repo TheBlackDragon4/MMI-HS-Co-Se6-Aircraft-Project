@@ -32,10 +32,15 @@ public class AirplaneController : MonoBehaviour
     AircraftPhysics aircraftPhysics;
     Rigidbody rb;
 
+    //Added variables
+    public bool visibleControls = true;
+    GameObject controlsDisplay;
+
     private void Start()
     {
         aircraftPhysics = GetComponent<AircraftPhysics>();
         rb = GetComponent<Rigidbody>();
+        controlsDisplay = GameObject.Find("Controls");
     }
 
     private void Update()
@@ -59,10 +64,21 @@ public class AirplaneController : MonoBehaviour
             brakesTorque = brakesTorque > 0 ? 0 : 100f;
         }
 
-        displayText.text = "V: " + ((int)rb.velocity.magnitude).ToString("D3") + " m/s\n";
-        displayText.text += "A: " + ((int)transform.position.y).ToString("D4") + " m\n";
-        displayText.text += "T: " + (int)(thrustPercent * 100) + "%\n";
-        displayText.text += brakesTorque > 0 ? "B: ON" : "B: OFF";
+        if (visibleControls)
+        {
+            if (!controlsDisplay.activeSelf)
+            {
+                controlsDisplay.SetActive(true);
+            }
+            displayText.text = "V: " + ((int)rb.velocity.magnitude).ToString("D3") + " m/s\n";
+            displayText.text += "A: " + ((int)transform.position.y).ToString("D4") + " m\n";
+            displayText.text += "T: " + (int)(thrustPercent * 100) + "%\n";
+            displayText.text += brakesTorque > 0 ? "B: ON" : "B: OFF";
+        }
+        else
+        {
+            controlsDisplay.SetActive(false);
+        }
     }
 
     private void FixedUpdate()
