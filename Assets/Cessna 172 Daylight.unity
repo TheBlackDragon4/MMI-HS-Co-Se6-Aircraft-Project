@@ -24,9 +24,9 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 3
+  m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 26231221aeda3db4d96783afa2b0d65d, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: cf800250cc151714d828cf2cafa805d2, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -203,75 +203,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 633aba7763524e74d8aed8ad42e74506, type: 3}
---- !u!1001 &150861314
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8282871548512274082, guid: 0c79cdfd52c0911419ef8e3b32b556ae,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8282871548512274082, guid: 0c79cdfd52c0911419ef8e3b32b556ae,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 352.52728
-      objectReference: {fileID: 0}
-    - target: {fileID: 8282871548512274082, guid: 0c79cdfd52c0911419ef8e3b32b556ae,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 42.237305
-      objectReference: {fileID: 0}
-    - target: {fileID: 8282871548512274082, guid: 0c79cdfd52c0911419ef8e3b32b556ae,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 522.067
-      objectReference: {fileID: 0}
-    - target: {fileID: 8282871548512274082, guid: 0c79cdfd52c0911419ef8e3b32b556ae,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8282871548512274082, guid: 0c79cdfd52c0911419ef8e3b32b556ae,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8282871548512274082, guid: 0c79cdfd52c0911419ef8e3b32b556ae,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8282871548512274082, guid: 0c79cdfd52c0911419ef8e3b32b556ae,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8282871548512274082, guid: 0c79cdfd52c0911419ef8e3b32b556ae,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8282871548512274082, guid: 0c79cdfd52c0911419ef8e3b32b556ae,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8282871548512274082, guid: 0c79cdfd52c0911419ef8e3b32b556ae,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8282871548512274092, guid: 0c79cdfd52c0911419ef8e3b32b556ae,
-        type: 3}
-      propertyPath: m_Name
-      value: Reloader
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0c79cdfd52c0911419ef8e3b32b556ae, type: 3}
 --- !u!4 &199425521 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4045920869679372, guid: bc59902fe8272d54da1ae082ff755757,
@@ -285,6 +216,146 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 502943989}
     m_Modifications:
+    - target: {fileID: 17341785842543230, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 451535980045265682, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 776945138475124119, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069350537463265269, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1259687840449115018, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1524280143556994550, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1943729783125461147, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136040127026334305, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2396929279637852313, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2916539727092636338, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938433708087428918, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3114439770108276209, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268143568065786546, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3387749704414753225, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3549732774831187545, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3644934237646280461, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4079473911478882315, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208685534986971198, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4284810325279316367, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4831640449219448497, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4897038907577705657, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962390713211461898, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5264689928432904515, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5301460638757948548, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5425157202112938559, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776787724901240102, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6053254752778464352, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6314444540034841613, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6664407620777530460, guid: 0421bbefd9da396458eec9453ec48201,
         type: 3}
       propertyPath: m_RootOrder
@@ -344,6 +415,86 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Liftoffstrip
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678705658182038076, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6805157763168614755, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7373378819384920436, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7719206425478526501, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7790637737232571055, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922909485966594543, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045219784725074564, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8149809093526258301, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8189813105422136331, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8345940307788038628, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424899095198727865, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500355023779397715, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8632864262974992505, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8687217489211813652, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8967771860464173165, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9109877384586442369, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6744786660390391792, guid: 0421bbefd9da396458eec9453ec48201, type: 3}
@@ -786,7 +937,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
@@ -992,6 +1143,75 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1690535972}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &906295240
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8282871548512274082, guid: 0c79cdfd52c0911419ef8e3b32b556ae,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282871548512274082, guid: 0c79cdfd52c0911419ef8e3b32b556ae,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 352.52728
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282871548512274082, guid: 0c79cdfd52c0911419ef8e3b32b556ae,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 42.237305
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282871548512274082, guid: 0c79cdfd52c0911419ef8e3b32b556ae,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 522.067
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282871548512274082, guid: 0c79cdfd52c0911419ef8e3b32b556ae,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282871548512274082, guid: 0c79cdfd52c0911419ef8e3b32b556ae,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282871548512274082, guid: 0c79cdfd52c0911419ef8e3b32b556ae,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282871548512274082, guid: 0c79cdfd52c0911419ef8e3b32b556ae,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282871548512274082, guid: 0c79cdfd52c0911419ef8e3b32b556ae,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282871548512274082, guid: 0c79cdfd52c0911419ef8e3b32b556ae,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282871548512274082, guid: 0c79cdfd52c0911419ef8e3b32b556ae,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282871548512274092, guid: 0c79cdfd52c0911419ef8e3b32b556ae,
+        type: 3}
+      propertyPath: m_Name
+      value: Reloader
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0c79cdfd52c0911419ef8e3b32b556ae, type: 3}
 --- !u!4 &937147586 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6664407620777530460, guid: 0421bbefd9da396458eec9453ec48201,
@@ -1696,6 +1916,146 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 502943989}
     m_Modifications:
+    - target: {fileID: 17341785842543230, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 451535980045265682, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 776945138475124119, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069350537463265269, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1259687840449115018, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1524280143556994550, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1943729783125461147, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136040127026334305, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2396929279637852313, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2916539727092636338, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938433708087428918, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3114439770108276209, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268143568065786546, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3387749704414753225, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3549732774831187545, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3644934237646280461, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4079473911478882315, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208685534986971198, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4284810325279316367, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4831640449219448497, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4897038907577705657, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962390713211461898, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5264689928432904515, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5301460638757948548, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5425157202112938559, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776787724901240102, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6053254752778464352, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6314444540034841613, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6664407620777530460, guid: 0421bbefd9da396458eec9453ec48201,
         type: 3}
       propertyPath: m_RootOrder
@@ -1756,6 +2116,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Landingstrip
       objectReference: {fileID: 0}
+    - target: {fileID: 6678705658182038076, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6744786660390391792, guid: 0421bbefd9da396458eec9453ec48201,
         type: 3}
       propertyPath: endText
@@ -1766,6 +2131,81 @@ PrefabInstance:
       propertyPath: endScreen
       value: 
       objectReference: {fileID: 36758336}
+    - target: {fileID: 6805157763168614755, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7373378819384920436, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7719206425478526501, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7790637737232571055, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922909485966594543, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045219784725074564, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8149809093526258301, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8189813105422136331, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8345940307788038628, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424899095198727865, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500355023779397715, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8632864262974992505, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8687217489211813652, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8967771860464173165, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9109877384586442369, guid: 0421bbefd9da396458eec9453ec48201,
+        type: 3}
+      propertyPath: dayLightMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0421bbefd9da396458eec9453ec48201, type: 3}
 --- !u!1001 &1782193922

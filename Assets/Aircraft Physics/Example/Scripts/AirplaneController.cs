@@ -121,4 +121,9 @@ public class AirplaneController : MonoBehaviour
         if (!Application.isPlaying)
             SetControlSurfecesAngles(Pitch, Roll, Yaw, Flap);
     }
+
+    public float getVelocity()
+    {
+        return rb.velocity.magnitude;
+    }
 }

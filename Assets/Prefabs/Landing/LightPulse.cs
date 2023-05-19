@@ -9,6 +9,8 @@ public class LightPulse : MonoBehaviour
     public Material glow;
     public Material turnedOff;
 
+    public bool dayLightMode;
+
     private bool isOn = true;
     private float switchOffTime = 3f;
     private float switchOnTime = 1f;
@@ -20,12 +22,15 @@ public class LightPulse : MonoBehaviour
     {
         mR = this.GetComponent<MeshRenderer>();
         timeHolder = switchOffTime;
+        if(dayLightMode)
+            mR.material = turnedOff;
     }
 
     // Update is called once per frame
     void Update()
     {
-        lightSwitch();
+        if(!dayLightMode)
+            lightSwitch();
     }
 
     private void lightSwitch()
