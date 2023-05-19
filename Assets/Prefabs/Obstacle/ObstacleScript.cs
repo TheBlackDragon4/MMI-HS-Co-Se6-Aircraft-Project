@@ -6,8 +6,15 @@ public class ObstacleScript : MonoBehaviour
 {
     public float rotationSpeed = 10f;
 
+    private GameObject landingstrip;
+
     [SerializeField]
     private Material seeTrough;
+
+    void Start()
+    {
+        landingstrip = GameObject.FindGameObjectWithTag("Landing");
+    }
 
     void Update()
     {
@@ -15,7 +22,8 @@ public class ObstacleScript : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Airplane.");
+        Debug.Log("Obstacle hit!");
+        landingstrip.GetComponent<EvaluateFlight>().obstacleWasHit();
         this.GetComponent<MeshRenderer>().material= seeTrough;
         Destroy(this.GetComponent<MeshCollider>());
     }

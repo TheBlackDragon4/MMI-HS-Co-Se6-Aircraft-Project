@@ -126,4 +126,9 @@ public class AirplaneController : MonoBehaviour
     {
         return rb.velocity.magnitude;
     }
+
+    public float getAltitude()
+    {
+        return transform.position.y;
+    }
 }
