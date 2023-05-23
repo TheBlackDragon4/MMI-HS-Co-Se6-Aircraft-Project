@@ -23,7 +23,7 @@ public class ObstacleScript : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         Debug.Log("Obstacle hit!");
-        landingstrip.GetComponent<EvaluateFlight>().obstacleWasHit();
+//        landingstrip.GetComponent<EvaluateFlight>().obstacleWasHit();
         this.GetComponent<MeshRenderer>().material= seeTrough;
         Destroy(this.GetComponent<MeshCollider>());
     }
