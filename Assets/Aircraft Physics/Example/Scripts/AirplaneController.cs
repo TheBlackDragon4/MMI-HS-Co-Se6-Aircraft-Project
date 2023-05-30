@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -70,6 +71,7 @@ public class AirplaneController : MonoBehaviour
             Debug.Log(Roll);
             Yaw = Input.GetAxis("Yaw1");
         }
+        
 
         // joystick button 0 = XBox Controller Taste A
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("joystick 1 button 9") || Input.GetButtonDown("joystick button 0"))
