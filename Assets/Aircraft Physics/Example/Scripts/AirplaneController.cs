@@ -72,7 +72,7 @@ public class AirplaneController : MonoBehaviour
         {
             thrustPercent = thrustPercent > 0 ? 0 : 1f;
         }
-
+         
         if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("joystick 1 button 10"))
         {
             Flap = Flap > 0 ? 0 : 0.3f;
