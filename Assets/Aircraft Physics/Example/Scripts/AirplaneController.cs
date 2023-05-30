@@ -45,21 +45,33 @@ public class AirplaneController : MonoBehaviour
 
     private void Update()
     {
-        Pitch = Input.GetAxis("Vertical");
-        Roll = Input.GetAxis("Horizontal");
-        Yaw = Input.GetAxis("Yaw");
+        // Read input from the joystick axes
+        float joystickVertical = Input.GetAxis("Vertical");
+        float joystickHorizontal = Input.GetAxis("Horizontal");
+        float joystickYaw = Input.GetAxis("Yaw");
+
+        // Set the control variables based on joystick input
+        Pitch = joystickVertical;
+        Roll = joystickHorizontal;
+        Yaw = joystickYaw;
+
+        // Read input from the joystick slider
+        //float sliderValue = Input.GetAxis("Slider");
+
+        // Map slider input to thrustPercent value
+        //thrustPercent = sliderValue;
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             thrustPercent = thrustPercent > 0 ? 0 : 1f;
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("joystick 1 button 10"))
         {
             Flap = Flap > 0 ? 0 : 0.3f;
         }
 
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.B) || Input.GetButtonDown("joystick 1 button 11"))
         {
             brakesTorque = brakesTorque > 0 ? 0 : 100f;
         }
