@@ -36,6 +36,8 @@ public class AirplaneController : MonoBehaviour
     public bool visibleControls = true;
     GameObject controlsDisplay;
 
+    private bool mode = true;
+
     private void Start()
     {
         aircraftPhysics = GetComponent<AircraftPhysics>();
@@ -45,27 +47,32 @@ public class AirplaneController : MonoBehaviour
 
     private void Update()
     {
-        // Read input from the joystick axes
-        float joystickVertical = Input.GetAxis("Vertical");
-        float joystickHorizontal = Input.GetAxis("Horizontal");
-        float joystickYaw = Input.GetAxis("Yaw");
+        
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            mode = (mode == false) ? true : false;
+        }
 
-        // Set the control variables based on joystick input
-        Pitch = joystickVertical;
-        Roll = joystickHorizontal;
-        Yaw = joystickYaw;
+        if (mode == true)
+        {
+            Debug.Log("Richtig");
+            Pitch = Input.GetAxis("Vertical");
+            Roll = Input.GetAxis("Horizontal");
+            Yaw = Input.GetAxis("Yaw");
+        } 
+        else
+        {
+            Debug.Log("Test");
+            Pitch = Input.GetAxis("Vertical1");
+            Roll = Input.GetAxis("Horizontal1");
+            Yaw = Input.GetAxis("Yaw1");
+        }
 
-        // Read input from the joystick slider
-        //float sliderValue = Input.GetAxis("Slider");
-
-        // Map slider input to thrustPercent value
-        //thrustPercent = sliderValue;
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("joystick 1 button 9"))
         {
             thrustPercent = thrustPercent > 0 ? 0 : 1f;
         }
-
+         
         if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("joystick 1 button 10"))
         {
             Flap = Flap > 0 ? 0 : 0.3f;
