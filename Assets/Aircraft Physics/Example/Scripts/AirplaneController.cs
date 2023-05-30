@@ -50,35 +50,39 @@ public class AirplaneController : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.M))
         {
-            mode = (mode == false) ? true : false;
+            mode = !mode;
         }
 
         if (mode == true)
         {
-            Debug.Log("Richtig");
+            Debug.Log("Tastatursteuerung");
             Pitch = Input.GetAxis("Vertical");
+            Debug.Log(Pitch);
             Roll = Input.GetAxis("Horizontal");
             Yaw = Input.GetAxis("Yaw");
         } 
         else
         {
-            Debug.Log("Test");
+            Debug.Log("Controllersteuerung");
             Pitch = Input.GetAxis("Vertical1");
+            Debug.Log(Pitch);
             Roll = Input.GetAxis("Horizontal1");
+            Debug.Log(Roll);
             Yaw = Input.GetAxis("Yaw1");
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("joystick 1 button 9"))
+        // joystick button 0 = XBox Controller Taste A
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("joystick 1 button 9") || Input.GetButtonDown("joystick button 0"))
         {
             thrustPercent = thrustPercent > 0 ? 0 : 1f;
         }
-         
-        if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("joystick 1 button 10"))
+        // joystick button 2 = XBox Controller Taste X
+        if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("joystick 1 button 10") || Input.GetButtonDown("joystick button 2"))
         {
             Flap = Flap > 0 ? 0 : 0.3f;
         }
-
-        if (Input.GetKeyDown(KeyCode.B) || Input.GetButtonDown("joystick 1 button 11"))
+        // joystick button 1 = XBox Controller Taste B
+        if (Input.GetKeyDown(KeyCode.B) || Input.GetButtonDown("joystick 1 button 11") || Input.GetButtonDown("joystick button 1"))
         {
             brakesTorque = brakesTorque > 0 ? 0 : 100f;
         }
@@ -92,7 +96,8 @@ public class AirplaneController : MonoBehaviour
             displayText.text = "V: " + ((int)rb.velocity.magnitude).ToString("D3") + " m/s\n";
             displayText.text += "A: " + ((int)transform.position.y).ToString("D4") + " m\n";
             displayText.text += "T: " + (int)(thrustPercent * 100) + "%\n";
-            displayText.text += brakesTorque > 0 ? "B: ON" : "B: OFF";
+            displayText.text += brakesTorque > 0 ? "B: ON \n" : "B: OFF \n";
+            displayText.text += Flap > 0 ? "F: ON" : "F: OFF";
         }
         else
         {
