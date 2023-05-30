@@ -37,7 +37,7 @@ public class AirplaneController : MonoBehaviour
     public bool visibleControls = true;
     GameObject controlsDisplay;
 
-    private bool mode = true;
+    private int  mode = 0;
 
     private void Start()
     {
@@ -48,21 +48,32 @@ public class AirplaneController : MonoBehaviour
 
     private void Update()
     {
+        Vector3 mousePosition = Input.mousePosition;
+        Vector3 mouse = Camera.main.ScreenToViewportPoint(Input.mousePosition);
         
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            mode = !mode;
-        }
 
-        if (mode == true)
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            mode = 0;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            mode = 1;
+        } 
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            mode = 2;
+        }        
+
+        if (mode == 0)
         {
             Debug.Log("Tastatursteuerung");
             Pitch = Input.GetAxis("Vertical");
             Debug.Log(Pitch);
             Roll = Input.GetAxis("Horizontal");
-            Yaw = Input.GetAxis("Yaw");
+            Yaw = Input.GetAxis("Yaw");            
         } 
-        else
+        if (mode == 1)
         {
             Debug.Log("Controllersteuerung");
             Pitch = Input.GetAxis("Vertical1");
@@ -70,6 +81,15 @@ public class AirplaneController : MonoBehaviour
             Roll = Input.GetAxis("Horizontal1");
             Debug.Log(Roll);
             Yaw = Input.GetAxis("Yaw1");
+        }
+        if (mode == 2)
+        {
+            Debug.Log("Maussteuerung");
+            Pitch = Input.GetAxis("Mouse Y"); // Vertical direction
+            Debug.Log("Mous Y Pitch: " + Pitch);
+            Roll = Input.GetAxis("Mouse X"); // Horizontal direction
+            Debug.Log("Mous X Roll: " + Roll);
+            Yaw = Input.GetAxis("Yaw");
         }
         
 
