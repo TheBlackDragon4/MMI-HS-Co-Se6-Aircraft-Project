@@ -36,6 +36,8 @@ public class AirplaneController : MonoBehaviour
     public bool visibleControls = true;
     GameObject controlsDisplay;
 
+    private bool mode = true;
+
     private void Start()
     {
         aircraftPhysics = GetComponent<AircraftPhysics>();
@@ -45,21 +47,38 @@ public class AirplaneController : MonoBehaviour
 
     private void Update()
     {
-        Pitch = Input.GetAxis("Vertical");
-        Roll = Input.GetAxis("Horizontal");
-        Yaw = Input.GetAxis("Yaw");
+        
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            mode = (mode == false) ? true : false;
+        }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (mode == true)
+        {
+            Debug.Log("Richtig");
+            Pitch = Input.GetAxis("Vertical");
+            Roll = Input.GetAxis("Horizontal");
+            Yaw = Input.GetAxis("Yaw");
+        } 
+        else
+        {
+            Debug.Log("Test");
+            Pitch = Input.GetAxis("Vertical1");
+            Roll = Input.GetAxis("Horizontal1");
+            Yaw = Input.GetAxis("Yaw1");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("joystick 1 button 9"))
         {
             thrustPercent = thrustPercent > 0 ? 0 : 1f;
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("joystick 1 button 10"))
         {
             Flap = Flap > 0 ? 0 : 0.3f;
         }
 
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.B) || Input.GetButtonDown("joystick 1 button 11"))
         {
             brakesTorque = brakesTorque > 0 ? 0 : 100f;
         }
