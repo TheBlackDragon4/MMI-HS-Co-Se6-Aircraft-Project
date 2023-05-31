@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -38,7 +39,11 @@ public class AirplaneController : MonoBehaviour
     public bool visibleControls = true;
     GameObject controlsDisplay;
 
+    //Addes variables for changing mode and add the time
     private int  mode = 1;
+    private float startTime = 0f;
+    private bool isTriggered = false;
+    private string timeText = "00:00"; // Standardwert, falls thrustPercent nicht 1 ist
 
     private void Start()
     {
@@ -87,6 +92,7 @@ public class AirplaneController : MonoBehaviour
             Yaw = Input.GetAxis("Yaw");
         }
 
+        Debug.Log(startTime);
 
         // joystick button 0 = XBox Controller Taste A
         // Input.GetMouseButtonDown(0) = Linke Maustaste
@@ -94,6 +100,14 @@ public class AirplaneController : MonoBehaviour
         {
             // Schubkraft
             thrustPercent = thrustPercent > 0 ? 0 : 1f;
+
+            if (!isTriggered)
+            {
+                isTriggered = true;
+                // Spielzeitberechnung
+                startTime = Time.time;                
+            }
+            
         }
         // joystick button 2 = XBox Controller Taste X
         // Input.GetMouseButtonDown(1) = Rechte Maustaste
@@ -107,7 +121,13 @@ public class AirplaneController : MonoBehaviour
         {
             // Bremsen
             brakesTorque = brakesTorque > 0 ? 0 : 100f;
-        }
+        }                
+        
+        // Zeitausgabe anpassen
+        float elapsedTime = Time.time - startTime;
+        int minutes = Mathf.FloorToInt(elapsedTime / 60);
+        int seconds = Mathf.FloorToInt(elapsedTime % 60);
+        timeText = string.Format("{0:0}:{1:00}", minutes, seconds);        
 
         if (visibleControls)
         {
@@ -115,7 +135,8 @@ public class AirplaneController : MonoBehaviour
             {
                 controlsDisplay.SetActive(true);
             }
-            displayText.text = "V: " + ((int)rb.velocity.magnitude).ToString("D3") + " m/s\n";
+            displayText.text = "Zeit: " + timeText + " min\n";
+            displayText.text += "V: " + ((int)rb.velocity.magnitude).ToString("D3") + " m/s\n";
             displayText.text += "A: " + ((int)transform.position.y).ToString("D4") + " m\n";
             displayText.text += "T: " + (int)(thrustPercent * 100) + "%\n";
             displayText.text += brakesTorque > 0 ? "B: ON \n" : "B: OFF \n";
