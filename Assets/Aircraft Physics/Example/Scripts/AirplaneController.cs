@@ -37,6 +37,10 @@ public class AirplaneController : MonoBehaviour
     public bool visibleControls = true;
     GameObject controlsDisplay;
 
+    //trackpad varriables
+    private float swipeHorizontal;
+    private float swipeVertical;
+
     private int  mode = 0;
 
     private void Start()
@@ -68,27 +72,43 @@ public class AirplaneController : MonoBehaviour
         if (mode == 0)
         {
             Debug.Log("Tastatursteuerung");
-            Pitch = Input.GetAxis("Vertical");
+            //Pitch = Input.GetAxis("Vertical");
             Debug.Log(Pitch);
-            Roll = Input.GetAxis("Horizontal");
+            //Roll = Input.GetAxis("Horizontal");
             Yaw = Input.GetAxis("Yaw");            
         } 
         if (mode == 1)
         {
             Debug.Log("Controllersteuerung");
             Pitch = Input.GetAxis("Vertical1");
-            Debug.Log(Pitch);
+            //Debug.Log(Pitch);
             Roll = Input.GetAxis("Horizontal1");
-            Debug.Log(Roll);
+            //Debug.Log(Roll);
             Yaw = Input.GetAxis("Yaw1");
         }
         if (mode == 2)
         {
-            Debug.Log("Maussteuerung");
-            Pitch = Input.GetAxis("Mouse Y"); // Vertical direction
-            Debug.Log("Mous Y Pitch: " + Pitch);
-            Roll = Input.GetAxis("Mouse X"); // Horizontal direction
-            Debug.Log("Mous X Roll: " + Roll);
+            Debug.Log("Trackpadsteuerung");
+            if (Input.touchCount > 0)
+            {
+                Touch touch = Input.GetTouch(0);
+
+                if (touch.phase == TouchPhase.Moved)
+                {
+                    float touchDeltaX = touch.deltaPosition.x;
+                    float touchDeltaY = touch.deltaPosition.y;
+                    float normalizedDeltaX = touchDeltaX / Screen.width;
+                    float normalizedDeltaY = touchDeltaY / Screen.height;
+
+                    swipeHorizontal = Mathf.Clamp(normalizedDeltaX, -1f, 1f);
+                    swipeVertical = Mathf.Clamp(normalizedDeltaY, -1f, 1f);
+                }
+            }
+
+            Pitch = swipeVertical; // Vertical direction
+            Debug.Log("Y Pitch: " + Pitch);
+            Roll = swipeHorizontal; // Horizontal direction
+            Debug.Log("X Roll: " + Roll);
             Yaw = Input.GetAxis("Yaw");
         }
         
