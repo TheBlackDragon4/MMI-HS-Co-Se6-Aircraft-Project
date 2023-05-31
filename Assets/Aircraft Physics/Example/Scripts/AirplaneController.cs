@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+using System;
+using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
@@ -37,7 +38,11 @@ public class AirplaneController : MonoBehaviour
     public bool visibleControls = true;
     GameObject controlsDisplay;
 
-    private int  mode = 0;
+    //Addes variables for changing mode and add the time
+    private int  mode = 1;
+    private float startTime = 0f;
+    private bool isTriggered = false;
+    private string timeText = "00:00"; // Standardwert, falls thrustPercent nicht 1 ist
 
     private void Start()
     {
@@ -48,66 +53,80 @@ public class AirplaneController : MonoBehaviour
 
     private void Update()
     {
-        Vector3 mousePosition = Input.mousePosition;
-        Vector3 mouse = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-        
-
-        if (Input.GetKeyDown(KeyCode.Alpha0))
-        {
-            mode = 0;
-        }
+        // Tastatussteuerung
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             mode = 1;
-        } 
+        }
+        // Controllersteuerung
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             mode = 2;
+        }
+        // Maussteuerung
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            mode = 3;
         }        
 
-        if (mode == 0)
-        {
-            Debug.Log("Tastatursteuerung");
-            Pitch = Input.GetAxis("Vertical");
-            Debug.Log(Pitch);
-            Roll = Input.GetAxis("Horizontal");
-            Yaw = Input.GetAxis("Yaw");            
-        } 
         if (mode == 1)
         {
+            Debug.Log("Tastatursteuerung");
+            Pitch = Input.GetAxis("Vertical"); // Vertical direction
+            Roll = Input.GetAxis("Horizontal"); // Horizontal direction
+            Yaw = Input.GetAxis("Yaw");            
+        } 
+        if (mode == 2)
+        {
             Debug.Log("Controllersteuerung");
-            Pitch = Input.GetAxis("Vertical1");
-            Debug.Log(Pitch);
-            Roll = Input.GetAxis("Horizontal1");
-            Debug.Log(Roll);
+            Pitch = Input.GetAxis("Vertical1"); // Vertical direction
+            Roll = Input.GetAxis("Horizontal1"); // Horizontal direction
             Yaw = Input.GetAxis("Yaw1");
         }
-        if (mode == 2)
+        if (mode == 3)
         {
             Debug.Log("Maussteuerung");
             Pitch = Input.GetAxis("Mouse Y"); // Vertical direction
-            Debug.Log("Mous Y Pitch: " + Pitch);
             Roll = Input.GetAxis("Mouse X"); // Horizontal direction
-            Debug.Log("Mous X Roll: " + Roll);
             Yaw = Input.GetAxis("Yaw");
         }
-        
+
+        Debug.Log(startTime);
 
         // joystick button 0 = XBox Controller Taste A
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("joystick 1 button 9") || Input.GetButtonDown("joystick button 0"))
+        // Input.GetMouseButtonDown(0) = Linke Maustaste
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("joystick 1 button 9") || Input.GetButtonDown("joystick button 0") || Input.GetMouseButtonDown(0))
         {
+            // Schubkraft
             thrustPercent = thrustPercent > 0 ? 0 : 1f;
+
+            if (!isTriggered)
+            {
+                isTriggered = true;
+                // Spielzeitberechnung
+                startTime = Time.time;                
+            }
+            
         }
         // joystick button 2 = XBox Controller Taste X
-        if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("joystick 1 button 10") || Input.GetButtonDown("joystick button 2"))
+        // Input.GetMouseButtonDown(1) = Rechte Maustaste
+        if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("joystick 1 button 10") || Input.GetButtonDown("joystick button 2") || Input.GetMouseButtonDown(2))
         {
+            // Klappen
             Flap = Flap > 0 ? 0 : 0.3f;
         }
         // joystick button 1 = XBox Controller Taste B
-        if (Input.GetKeyDown(KeyCode.B) || Input.GetButtonDown("joystick 1 button 11") || Input.GetButtonDown("joystick button 1"))
+        if (Input.GetKeyDown(KeyCode.B) || Input.GetButtonDown("joystick 1 button 11") || Input.GetButtonDown("joystick button 1") || Input.GetMouseButtonDown(1))
         {
+            // Bremsen
             brakesTorque = brakesTorque > 0 ? 0 : 100f;
-        }
+        }                
+        
+        // Zeitausgabe anpassen
+        float elapsedTime = Time.time - startTime;
+        int minutes = Mathf.FloorToInt(elapsedTime / 60);
+        int seconds = Mathf.FloorToInt(elapsedTime % 60);
+        timeText = string.Format("{0:0}:{1:00}", minutes, seconds);        
 
         if (visibleControls)
         {
@@ -115,7 +134,8 @@ public class AirplaneController : MonoBehaviour
             {
                 controlsDisplay.SetActive(true);
             }
-            displayText.text = "V: " + ((int)rb.velocity.magnitude).ToString("D3") + " m/s\n";
+            displayText.text = "Zeit: " + timeText + " min\n";
+            displayText.text += "V: " + ((int)rb.velocity.magnitude).ToString("D3") + " m/s\n";
             displayText.text += "A: " + ((int)transform.position.y).ToString("D4") + " m\n";
             displayText.text += "T: " + (int)(thrustPercent * 100) + "%\n";
             displayText.text += brakesTorque > 0 ? "B: ON \n" : "B: OFF \n";
