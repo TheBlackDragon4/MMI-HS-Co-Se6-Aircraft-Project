@@ -38,7 +38,7 @@ public class AirplaneController : MonoBehaviour
     public bool visibleControls = true;
     GameObject controlsDisplay;
 
-    private int  mode = 0;
+    private int  mode = 1;
 
     private void Start()
     {
@@ -49,47 +49,41 @@ public class AirplaneController : MonoBehaviour
 
     private void Update()
     {
-        Vector3 mousePosition = Input.mousePosition;
-        Vector3 mouse = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-        
-
-        if (Input.GetKeyDown(KeyCode.Alpha0))
+        // Tastatussteuerung
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             mode = 0;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        // Controllersteuerung
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             mode = 1;
-        } 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        }
+        // Maussteuerung
+        if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             mode = 2;
         }        
 
-        if (mode == 0)
-        {
-            Debug.Log("Tastatursteuerung");
-            Pitch = Input.GetAxis("Vertical");
-            Debug.Log(Pitch);
-            Roll = Input.GetAxis("Horizontal");
-            Yaw = Input.GetAxis("Yaw");            
-        } 
         if (mode == 1)
         {
+            Debug.Log("Tastatursteuerung");
+            Pitch = Input.GetAxis("Vertical"); // Vertical direction
+            Roll = Input.GetAxis("Horizontal"); // Horizontal direction
+            Yaw = Input.GetAxis("Yaw");            
+        } 
+        if (mode == 2)
+        {
             Debug.Log("Controllersteuerung");
-            Pitch = Input.GetAxis("Vertical1");
-            Debug.Log(Pitch);
-            Roll = Input.GetAxis("Horizontal1");
-            Debug.Log(Roll);
+            Pitch = Input.GetAxis("Vertical1"); // Vertical direction
+            Roll = Input.GetAxis("Horizontal1"); // Horizontal direction
             Yaw = Input.GetAxis("Yaw1");
         }
-        if (mode == 2)
+        if (mode == 3)
         {
             Debug.Log("Maussteuerung");
             Pitch = Input.GetAxis("Mouse Y"); // Vertical direction
-            Debug.Log("Mous Y Pitch: " + Pitch);
             Roll = Input.GetAxis("Mouse X"); // Horizontal direction
-            Debug.Log("Mous X Roll: " + Roll);
             Yaw = Input.GetAxis("Yaw");
         }
 
