@@ -52,17 +52,17 @@ public class AirplaneController : MonoBehaviour
         // Tastatussteuerung
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            mode = 0;
+            mode = 1;
         }
         // Controllersteuerung
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            mode = 1;
+            mode = 2;
         }
         // Maussteuerung
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            mode = 2;
+            mode = 3;
         }        
 
         if (mode == 1)
