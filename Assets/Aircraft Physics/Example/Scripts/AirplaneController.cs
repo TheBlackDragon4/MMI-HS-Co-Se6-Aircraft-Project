@@ -97,8 +97,8 @@ public class AirplaneController : MonoBehaviour
                 {
                     float touchDeltaX = touch.deltaPosition.x;
                     float touchDeltaY = touch.deltaPosition.y;
-                    float normalizedDeltaX = Mathf.Clamp(touchDeltaX / (Screen.width * 0.5f), -1f, 1f);
-                    float normalizedDeltaY = Mathf.Clamp(touchDeltaY / (Screen.height * 0.5f), -1f, 1f);
+                    float normalizedDeltaX = Mathf.Clamp(touchDeltaX / (Screen.width * 0.5f) * 50, -1f, 1f);
+                    float normalizedDeltaY = Mathf.Clamp(touchDeltaY / (Screen.height * 0.5f) * 50, -1f, 1f);
 
 
                     swipeHorizontal = Mathf.Clamp(normalizedDeltaX, -1f, 1f);
