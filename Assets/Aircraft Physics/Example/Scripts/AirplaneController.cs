@@ -88,7 +88,7 @@ public class AirplaneController : MonoBehaviour
         }
         if (mode == 2)
         {
-            Debug.Log("Trackpadsteuerung");
+            Debug.Log("Touchscreensteuerung");
             if (Input.touchCount > 0)
             {
                 Touch touch = Input.GetTouch(0);
@@ -97,8 +97,9 @@ public class AirplaneController : MonoBehaviour
                 {
                     float touchDeltaX = touch.deltaPosition.x;
                     float touchDeltaY = touch.deltaPosition.y;
-                    float normalizedDeltaX = touchDeltaX / Screen.width;
-                    float normalizedDeltaY = touchDeltaY / Screen.height;
+                    float normalizedDeltaX = Mathf.Clamp(touchDeltaX / (Screen.width * 0.5f), -1f, 1f);
+                    float normalizedDeltaY = Mathf.Clamp(touchDeltaY / (Screen.height * 0.5f), -1f, 1f);
+
 
                     swipeHorizontal = Mathf.Clamp(normalizedDeltaX, -1f, 1f);
                     swipeVertical = Mathf.Clamp(normalizedDeltaY, -1f, 1f);
