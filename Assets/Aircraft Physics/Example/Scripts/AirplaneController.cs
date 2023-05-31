@@ -30,6 +30,9 @@ public class AirplaneController : MonoBehaviour
     float thrustPercent;
     float brakesTorque;
 
+    //Anzahl der durchflogenen Ringe
+    private int ringezaehler;
+
     AircraftPhysics aircraftPhysics;
     Rigidbody rb;
 
@@ -71,10 +74,10 @@ public class AirplaneController : MonoBehaviour
 
         if (mode == 0)
         {
-            Debug.Log("Tastatursteuerung");
-            //Pitch = Input.GetAxis("Vertical");
-            Debug.Log(Pitch);
-            //Roll = Input.GetAxis("Horizontal");
+            //Debug.Log("Tastatursteuerung");
+            Pitch = Input.GetAxis("Vertical");
+            //Debug.Log(Pitch);
+            Roll = Input.GetAxis("Horizontal");
             Yaw = Input.GetAxis("Yaw");            
         } 
         if (mode == 1)
@@ -97,8 +100,8 @@ public class AirplaneController : MonoBehaviour
                 {
                     float touchDeltaX = touch.deltaPosition.x;
                     float touchDeltaY = touch.deltaPosition.y;
-                    float normalizedDeltaX = Mathf.Clamp(touchDeltaX / (Screen.width * 0.5f) * 50, -1f, 1f);
-                    float normalizedDeltaY = Mathf.Clamp(touchDeltaY / (Screen.height * 0.5f) * 50, -1f, 1f);
+                    float normalizedDeltaX = Mathf.Clamp(touchDeltaX / (Screen.width * 0.5f), -1f, 1f);
+                    float normalizedDeltaY = Mathf.Clamp(touchDeltaY / (Screen.height * 0.5f), -1f, 1f);
 
 
                     swipeHorizontal = Mathf.Clamp(normalizedDeltaX, -1f, 1f);
@@ -140,7 +143,8 @@ public class AirplaneController : MonoBehaviour
             displayText.text += "A: " + ((int)transform.position.y).ToString("D4") + " m\n";
             displayText.text += "T: " + (int)(thrustPercent * 100) + "%\n";
             displayText.text += brakesTorque > 0 ? "B: ON \n" : "B: OFF \n";
-            displayText.text += Flap > 0 ? "F: ON" : "F: OFF";
+            displayText.text += Flap > 0 ? "F: ON \n" : "F: OFF \n";
+            displayText.text += ringezaehler < 0 ? "Ringe: 0" : "Ringe: " + ringezaehler;
         }
         else
         {
@@ -197,5 +201,20 @@ public class AirplaneController : MonoBehaviour
     public float getAltitude()
     {
         return transform.position.y;
+    }
+
+    public float GetBrakesTorque()
+    {
+        return brakesTorque;
+    }
+
+    public float GetThrustPercent()
+    {
+        return thrustPercent;
+    }
+
+    public void SetRingeZeahler(int zaehler1)
+    {
+        ringezaehler = zaehler1;
     }
 }
