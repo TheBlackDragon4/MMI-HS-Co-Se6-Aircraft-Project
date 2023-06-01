@@ -44,7 +44,13 @@ public class AirplaneController : MonoBehaviour
     private float swipeHorizontal;
     private float swipeVertical;
 
-    private int  mode = 0;
+    //Addes variables for changing mode and add the time
+    private int mode = 0;
+    private float startTime = 0f;
+    private bool isTriggered = false;
+    private int minutes = 0;
+    private int seconds = 0;
+    private float elapsedTime = 0f;
 
     private void Start()
     {
@@ -74,7 +80,7 @@ public class AirplaneController : MonoBehaviour
 
         if (mode == 0)
         {
-            //Debug.Log("Tastatursteuerung");
+            Debug.Log("Tastatursteuerung");
             Pitch = Input.GetAxis("Vertical");
             //Debug.Log(Pitch);
             Roll = Input.GetAxis("Horizontal");
@@ -115,12 +121,18 @@ public class AirplaneController : MonoBehaviour
             Debug.Log("X Roll: " + Roll);
             Yaw = Input.GetAxis("Yaw");
         }
-        
 
         // joystick button 0 = XBox Controller Taste A
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("joystick 1 button 9") || Input.GetButtonDown("joystick button 0"))
         {
             thrustPercent = thrustPercent > 0 ? 0 : 1f;
+
+            if (!isTriggered)
+            {
+                isTriggered = true;
+                // Spielzeitberechnung
+                startTime = Time.time;
+            }
         }
         // joystick button 2 = XBox Controller Taste X
         if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("joystick 1 button 10") || Input.GetButtonDown("joystick button 2"))
@@ -133,6 +145,11 @@ public class AirplaneController : MonoBehaviour
             brakesTorque = brakesTorque > 0 ? 0 : 100f;
         }
 
+        // Zeitausgabe anpassen
+        elapsedTime = Time.time - startTime;
+        minutes = Mathf.FloorToInt(elapsedTime / 60);
+        seconds = Mathf.FloorToInt(elapsedTime % 60);
+
         if (visibleControls)
         {
             if (!controlsDisplay.activeSelf)
@@ -142,6 +159,7 @@ public class AirplaneController : MonoBehaviour
             displayText.text = "V: " + ((int)rb.velocity.magnitude).ToString("D3") + " m/s\n";
             displayText.text += "A: " + ((int)transform.position.y).ToString("D4") + " m\n";
             displayText.text += "T: " + (int)(thrustPercent * 100) + "%\n";
+            displayText.text += "Zeit: " + (int)minutes + "min " + (int)seconds + "sec\n";
             displayText.text += brakesTorque > 0 ? "B: ON \n" : "B: OFF \n";
             displayText.text += Flap > 0 ? "F: ON \n" : "F: OFF \n";
             displayText.text += ringezaehler < 0 ? "Ringe: 0" : "Ringe: " + ringezaehler;
