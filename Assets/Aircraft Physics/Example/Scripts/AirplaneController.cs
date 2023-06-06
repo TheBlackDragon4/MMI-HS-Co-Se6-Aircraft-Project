@@ -44,6 +44,9 @@ public class AirplaneController : MonoBehaviour
     private bool isTriggered = false;
     private string timeText = "00:00"; // Standardwert, falls thrustPercent nicht 1 ist
 
+    // Anzahl der durchfolgener Ringe
+    private int ringCounter;
+
     private void Start()
     {
         aircraftPhysics = GetComponent<AircraftPhysics>();
@@ -53,6 +56,7 @@ public class AirplaneController : MonoBehaviour
 
     private void Update()
     {
+        ////////////////// MOVEMENT //////////////////
         // Tastatussteuerung
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -71,27 +75,25 @@ public class AirplaneController : MonoBehaviour
 
         if (mode == 1)
         {
-            Debug.Log("Tastatursteuerung");
+            //Debug.Log("Tastatursteuerung");
             Pitch = Input.GetAxis("Vertical"); // Vertical direction
             Roll = Input.GetAxis("Horizontal"); // Horizontal direction
             Yaw = Input.GetAxis("Yaw");            
         } 
         if (mode == 2)
         {
-            Debug.Log("Controllersteuerung");
+            //Debug.Log("Controllersteuerung");
             Pitch = Input.GetAxis("Vertical1"); // Vertical direction
             Roll = Input.GetAxis("Horizontal1"); // Horizontal direction
             Yaw = Input.GetAxis("Yaw1");
         }
         if (mode == 3)
         {
-            Debug.Log("Maussteuerung");
+            //Debug.Log("Maussteuerung");
             Pitch = Input.GetAxis("Mouse Y"); // Vertical direction
             Roll = Input.GetAxis("Mouse X"); // Horizontal direction
             Yaw = Input.GetAxis("Yaw");
         }
-
-        Debug.Log(startTime);
 
         // joystick button 0 = XBox Controller Taste A
         // Input.GetMouseButtonDown(0) = Linke Maustaste
@@ -105,8 +107,7 @@ public class AirplaneController : MonoBehaviour
                 isTriggered = true;
                 // Spielzeitberechnung
                 startTime = Time.time;                
-            }
-            
+            }            
         }
         // joystick button 2 = XBox Controller Taste X
         // Input.GetMouseButtonDown(1) = Rechte Maustaste
@@ -120,14 +121,21 @@ public class AirplaneController : MonoBehaviour
         {
             // Bremsen
             brakesTorque = brakesTorque > 0 ? 0 : 100f;
-        }                
-        
-        // Zeitausgabe anpassen
+        }
+
+        ////////////////// Zeitberechnung für Ausgabe //////////////////
         float elapsedTime = Time.time - startTime;
         int minutes = Mathf.FloorToInt(elapsedTime / 60);
         int seconds = Mathf.FloorToInt(elapsedTime % 60);
-        timeText = string.Format("{0:0}:{1:00}", minutes, seconds);        
+        timeText = string.Format("{0:0}:{1:00}", minutes, seconds);
 
+
+        if(transform.position.y < 0)
+        {
+
+        }
+
+        ////////////////// Displayausgabe //////////////////
         if (visibleControls)
         {
             if (!controlsDisplay.activeSelf)
@@ -139,7 +147,8 @@ public class AirplaneController : MonoBehaviour
             displayText.text += "A: " + ((int)transform.position.y).ToString("D4") + " m\n";
             displayText.text += "T: " + (int)(thrustPercent * 100) + "%\n";
             displayText.text += brakesTorque > 0 ? "B: ON \n" : "B: OFF \n";
-            displayText.text += Flap > 0 ? "F: ON" : "F: OFF";
+            displayText.text += Flap > 0 ? "F: ON\n" : "F: OFF \n";
+            displayText.text += ringCounter == 0 ? "Ringe: 0 von 9 " : "Ringe: " + ringCounter + " von 9";
         }
         else
         {
@@ -196,5 +205,22 @@ public class AirplaneController : MonoBehaviour
     public float getAltitude()
     {
         return transform.position.y;
+    }
+
+    public float GetBrakesTorque()
+    {
+        return brakesTorque;
+    }
+
+    public float GetThrustPercent()
+    {
+        return thrustPercent;
+    }
+
+    ////////////////// Funktion herauszufinden ob Ring berührt oder nicht //////////////////
+    // Increment Ring Counter    
+    public void SetRingCounter(int counter)
+    {
+        ringCounter = counter;
     }
 }
