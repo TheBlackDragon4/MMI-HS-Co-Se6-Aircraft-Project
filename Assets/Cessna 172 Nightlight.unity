@@ -1016,10 +1016,10 @@ RectTransform:
   m_Father: {fileID: 2106019377}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 228.8, y: 3.5}
-  m_SizeDelta: {x: 1409.9882, y: 369.42065}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 183.56, y: -220.63}
+  m_SizeDelta: {x: 1108.3651, y: 1358.8938}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &542925208
 MonoBehaviour:
@@ -1042,32 +1042,22 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 88
+    m_FontSize: 65
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 5
-    m_MaxSize: 197
+    m_MinSize: 0
+    m_MaxSize: 300
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1.19
-  m_Text: 'CONTROLS
-
-    PITCH - Left Stick Vertical or W/S
-
-    ROLL - Left Stick
-    Horizontal or A/D
-
-    YAW - Triggers or Q/E
-
-    FLAPS TOGGLE - F
-
-    BRAKES
-    TOGGLE - B
-
-    THROTTLE TOGGLE - Space'
+  m_Text: "CONTROLS\r\nMODS - \r\n\t1 = Tastatur\r\n\t2 = Controller\r\n\t3 = Maus\r\nPITCH
+    - Left Stick Vertical or W/S \r\n\tor Mousmovement Horizontal\r\nROLL - Left
+    Stick Horizontal or A/D \r\n\tor Mousmovement Vertical\r\nYAW - Triggers or Q/E\r\nFLAPS
+    TOGGLE - X or F\r\n\tor Middle mouse button\r\nBRAKES TOGGLE - B or B\r\n\tor
+    right mouse button\r\nTHROTTLE TOGGLE - A or Space\r\n\tor left mouse button"
 --- !u!222 &542925209
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1480,8 +1470,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -165.9, y: 165}
-  m_SizeDelta: {x: 294.65186, y: 288.7783}
+  m_AnchoredPosition: {x: -183.82, y: 199.92}
+  m_SizeDelta: {x: 330.49927, y: 358.61905}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &771153309
 MonoBehaviour:
@@ -1678,8 +1668,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.061129205, y: 0.000000017293662, z: 0.0000000055957106, w: 0.9981299}
-  m_LocalPosition: {x: 0, y: -58.289978, z: -14.273}
+  m_LocalRotation: {x: 0.061129205, y: -0.000000018111866, z: 0.000000007764077, w: 0.9981299}
+  m_LocalPosition: {x: 0, y: 6.18, z: -14.273}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2224,8 +2214,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -144.7, y: 143.9}
-  m_SizeDelta: {x: 798.7537, y: 854.5438}
+  m_AnchoredPosition: {x: -168.5, y: 178.82}
+  m_SizeDelta: {x: 957.38947, y: 1087.3463}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1480701378
 MonoBehaviour:
@@ -3030,8 +3020,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 256.2, y: -160.6}
-  m_SizeDelta: {x: 476.71564, y: 279.84198}
+  m_AnchoredPosition: {x: 192.75, y: -246.3}
+  m_SizeDelta: {x: 349.81647, y: 451.24567}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2106019378
 MonoBehaviour:
