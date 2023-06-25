@@ -1,0 +1,33 @@
+{
+    "name": "TouchInputs",
+    "maps": [
+        {
+            "name": "Game",
+            "id": "004b5491-09b8-4276-85b0-a2510c519974",
+            "actions": [
+                {
+                    "name": "ToggleThrottle",
+                    "type": "Button",
+                    "id": "eef03407-abb8-42c7-8a76-59bf2b63f972",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "eddf2bff-2f0f-41de-b1d0-6ba7ddb144b0",
+                    "path": "<Keyboard>/#(B)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleThrottle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

@@ -168,6 +168,7 @@ public class AirplaneController : MonoBehaviour
         {
             controlsDisplay.SetActive(false);
         }
+
     }
 
     private void FixedUpdate()
@@ -234,5 +235,22 @@ public class AirplaneController : MonoBehaviour
     public void SetRingeZeahler(int zaehler1)
     {
         ringezaehler = zaehler1;
+    }
+
+
+    // TOUCH STEUERUNG
+    public void toggleThrust()
+    {
+        thrustPercent = thrustPercent > 0 ? 0 : 1f;
+    }
+
+    public void toggleBrakes()
+    {
+        brakesTorque = brakesTorque > 0 ? 0 : 100f;
+    }
+
+    public void toggleFlaps()
+    {
+        Flap = Flap > 0 ? 0 : 0.3f;
     }
 }
