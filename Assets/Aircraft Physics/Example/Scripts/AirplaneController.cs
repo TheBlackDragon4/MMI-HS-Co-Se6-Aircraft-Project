@@ -2,6 +2,7 @@
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class AirplaneController : MonoBehaviour
 {
@@ -29,6 +30,8 @@ public class AirplaneController : MonoBehaviour
 
     float thrustPercent;
     float brakesTorque;
+    bool yawingLeft;
+    bool yawingRight;
 
     //Anzahl der durchflogenen Ringe
     private int ringezaehler;
@@ -115,11 +118,24 @@ public class AirplaneController : MonoBehaviour
                 }
             }
 
+            // Yaw resetting to 0 logic (middle)
+            if(yawingLeft)
+            {
+                Yaw = 1f;
+            } else if(yawingRight)
+            {
+                Yaw = -1f;
+            } else
+            {
+                Yaw = 0;
+            }
+
+
             Pitch = swipeVertical; // Vertical direction
-            Debug.Log("Y Pitch: " + Pitch);
+            // Debug.Log("Y Pitch: " + Pitch);
             Roll = swipeHorizontal; // Horizontal direction
-            Debug.Log("X Roll: " + Roll);
-            Yaw = Input.GetAxis("Yaw");
+            // Debug.Log("X Roll: " + Roll);
+            Debug.Log("X Roll: " + Roll + " || Y Pitch: " + Pitch + " || Z Yaw: " + Yaw);
         }
 
         // joystick button 0 = XBox Controller Taste A
@@ -252,5 +268,25 @@ public class AirplaneController : MonoBehaviour
     public void toggleFlaps()
     {
         Flap = Flap > 0 ? 0 : 0.3f;
+    }
+
+    public void yawLeftDOWN()
+    {
+        yawingLeft = true;
+    }
+
+    public void yawLeftUP()
+    {
+        yawingLeft = false;
+    }
+
+    public void yawRightDOWN()
+    {
+        yawingRight = true;
+    }
+
+    public void yawRightUP()
+    {
+        yawingRight = false;
     }
 }
