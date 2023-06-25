@@ -65,15 +65,15 @@ public class AirplaneController : MonoBehaviour
         Vector3 mouse = Camera.main.ScreenToViewportPoint(Input.mousePosition);
         
 
-        if (Input.GetKeyDown(KeyCode.Alpha0))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             mode = 0;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             mode = 1;
         } 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             mode = 2;
         }        
@@ -106,8 +106,8 @@ public class AirplaneController : MonoBehaviour
                 {
                     float touchDeltaX = touch.deltaPosition.x;
                     float touchDeltaY = touch.deltaPosition.y;
-                    float normalizedDeltaX = Mathf.Clamp(touchDeltaX / (Screen.width * 0.5f), -1f, 1f);
-                    float normalizedDeltaY = Mathf.Clamp(touchDeltaY / (Screen.height * 0.5f), -1f, 1f);
+                    float normalizedDeltaX = Mathf.Clamp(touchDeltaX * 50 / (Screen.width * 0.5f), -1f, 1f);
+                    float normalizedDeltaY = Mathf.Clamp(touchDeltaY *50 / (Screen.height * 0.5f), -1f, 1f);
 
 
                     swipeHorizontal = Mathf.Clamp(normalizedDeltaX, -1f, 1f);
