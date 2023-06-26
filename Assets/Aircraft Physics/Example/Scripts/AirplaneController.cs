@@ -3,6 +3,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Linq;
 
 public class AirplaneController : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class AirplaneController : MonoBehaviour
     float pitchControlSensitivity = 0.2f;
     [SerializeField]
     float yawControlSensitivity = 0.2f;
+    [SerializeField]
+    private Button[] touchButtons = null;
 
     [Range(-1, 1)]
     public float Pitch;
@@ -60,6 +63,11 @@ public class AirplaneController : MonoBehaviour
         aircraftPhysics = GetComponent<AircraftPhysics>();
         rb = GetComponent<Rigidbody>();
         controlsDisplay = GameObject.Find("Controls");
+
+        // Find the buttons with the specified tag
+        touchButtons = GameObject.FindGameObjectsWithTag("TouchButton")
+            .Select(go => go.GetComponent<Button>())
+            .ToArray();
     }
 
     private void Update()
@@ -83,6 +91,7 @@ public class AirplaneController : MonoBehaviour
 
         if (mode == 0)
         {
+            SetTouchButtonsState(false);
             Debug.Log("Tastatursteuerung");
             Pitch = Input.GetAxis("Vertical");
             //Debug.Log(Pitch);
@@ -91,6 +100,7 @@ public class AirplaneController : MonoBehaviour
         } 
         if (mode == 1)
         {
+            SetTouchButtonsState(false);
             Debug.Log("Controllersteuerung");
             Pitch = Input.GetAxis("Vertical1");
             //Debug.Log(Pitch);
@@ -100,6 +110,7 @@ public class AirplaneController : MonoBehaviour
         }
         if (mode == 2)
         {
+            SetTouchButtonsState(true);
             Debug.Log("Touchscreensteuerung");
             if (Input.touchCount > 0)
             {
@@ -288,5 +299,14 @@ public class AirplaneController : MonoBehaviour
     public void yawRightUP()
     {
         yawingRight = false;
+    }
+
+    private void SetTouchButtonsState(bool state)
+    {
+        foreach (Button button in touchButtons)
+        {
+            button.interactable = state;
+            button.gameObject.SetActive(state);
+        }
     }
 }
